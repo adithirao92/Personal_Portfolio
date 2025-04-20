@@ -1,0 +1,26 @@
+@import './variables';
+.home, .about, .projects, .contact {
+    max-width: 800px;
+    margin: auto;
+  
+    h1, h2 {
+      color: $primary-color;
+    }
+  
+    p {
+      line-height: 1.6;
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    .project {
+      background-color: white;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  }

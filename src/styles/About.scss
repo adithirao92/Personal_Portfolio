@@ -1,0 +1,266 @@
+// About.scss
+@import '../styles/_variables';
+
+.about-page {
+  padding: 5rem 2rem;
+  background-color: $bg-color;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .profile-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    .profile-image {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba($primary-color, 0.2) 0%, rgba($primary-color, 0) 100%);
+        z-index: 1;
+      }
+
+      &:hover img {
+        transform: scale(1.03);
+      }
+    }
+
+    .profile-content {
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 60px;
+          height: 3px;
+          background-color: $primary-color;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: $text-color;
+        margin-bottom: 2rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+
+        .stat-item {
+          text-align: center;
+          padding: 1.5rem 1rem;
+          background-color: $bg-color-secondary;
+          border-radius: 8px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          }
+
+          span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: $primary-color;
+            margin-bottom: 0.5rem;
+          }
+
+          p {
+            font-size: 0.9rem;
+            color: $text-secondary;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .education-timeline {
+    margin: 5rem 0;
+
+    h3 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: $text-color;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: $primary-color;
+      }
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      padding-left: 2rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background-color: $primary-color;
+      }
+
+      .timeline-date {
+        font-weight: 600;
+        color: $primary-color;
+        padding-top: 0.3rem;
+      }
+
+      .timeline-content {
+        background-color: $bg-color-secondary;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+        h4 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          color: $text-color;
+        }
+
+        p {
+          color: $text-secondary;
+          margin-bottom: 0.5rem;
+        }
+
+        span {
+          font-size: 0.9rem;
+          color: $primary-color;
+          font-weight: 500;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .achievements {
+    h3 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: $text-color;
+    }
+
+    ul {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        background-color: $bg-color-secondary;
+        margin-bottom: 1rem;
+        padding: 1.2rem 1.5rem;
+        border-radius: 8px;
+        position: relative;
+        padding-left: 2.5rem;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateX(10px);
+        }
+
+        &::before {
+          content: '✓';
+          position: absolute;
+          left: 1rem;
+          top: 1.2rem;
+          color: $primary-color;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .about-page {
+    padding: 3rem 1rem;
+
+    .profile-section {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      .profile-content {
+        h2 {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .education-timeline {
+      margin: 3rem 0;
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        padding-left: 1.5rem;
+
+        .timeline-date {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 2rem 0.5rem;
+
+    .profile-content {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

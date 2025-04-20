@@ -1,0 +1,139 @@
+@import './variables';
+
+
+.contact-page {
+  padding: 4rem 2rem;
+  background-color: $bg-color-secondary;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    width: 100%;
+
+    .contact-info {
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: $text-color;
+      }
+
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .contact-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          i {
+            font-size: 1.2rem;
+            color: $primary-color;
+            width: 30px;
+            text-align: center;
+          }
+
+          span, a {
+            color: $text-color;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: $primary-color;
+            }
+          }
+
+          a {
+            word-break: break-all;
+          }
+        }
+      }
+    }
+
+    .contact-form {
+      background: $bg-color;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+      .form-group {
+        margin-bottom: 1.5rem;
+
+        input, textarea {
+          width: 100%;
+          padding: 0.8rem 1rem;
+          border: 1px solid $border-color;
+          border-radius: 4px;
+          font-size: 1rem;
+          transition: border-color 0.3s ease;
+          background-color: lighten($bg-color, 5%);
+          color: $text-color;
+
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+          }
+
+          &::placeholder {
+            color: lighten($text-color, 30%);
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 150px;
+        }
+      }
+
+      .submit-btn {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        font-weight: 500;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 2rem 1rem;
+
+    .contact-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      .contact-info {
+        h2 {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
